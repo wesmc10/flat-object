@@ -12,9 +12,7 @@ function flattenObject(obj) {
             // a key to the return object. the key should contain the correct key given the current position in
             // the call stack, concatenated with a dot and the value of the current key in the flatObject.
             // it should also set its value to be the value of the current key in the flatObject
-            for (const nestedKey in flatObject) {
-                returnObj[`${key}.${nestedKey}`] = flatObject[nestedKey];
-            }
+            for (const nestedKey in flatObject) returnObj[`${key}.${nestedKey}`] = flatObject[nestedKey];
             // if the value of the data type is 'string', add it to the return object
 		} else returnObj[key] = obj[key];
     }
