@@ -2,9 +2,11 @@ function flatObject(obj) {
 	const returnObj = {};
     
 	for (const key in obj) {
-        // arrays also have data type 'object' in JS
-		if (typeof obj[key] === 'object') {
-            // if the value is an object, make a recursive call with that value as the parameter.
+		if (typeof obj[key] === 'string') {
+      		returnObj[key] = obj[key];
+    	} else {
+			// if the value is an object (or an array, since the data type of an array in JS is 'object'),
+			// make a recursive call with that value as the parameter.
             // we'll do this until we get to the base case, which is that the value of
             // whatever key we're on is now a string
             const newObject = flatObject(obj[key]);
@@ -14,8 +16,8 @@ function flatObject(obj) {
             // it should also set its value to be the value of the current key in the newObject
             for (const nestedKey in newObject) returnObj[`${key}.${nestedKey}`] = newObject[nestedKey];
             // if the value of the data type is 'string', add it to the return object
-		} else returnObj[key] = obj[key];
-    }
+		}
+  	}
     return returnObj;
 };
 
