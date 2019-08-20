@@ -19,9 +19,3 @@ function flatObject(obj) {
   	}
     return returnObj;
 };
-
-// ultimately I broke down the problem you gave me into a smaller piece so that I could get a better sense
-// of what I needed to do. (I find that this typically makes things much easier with recursion.) I took 
-// the deeply input nested object and deleted most of the data so that it was a lot smaller and easier to read.
-// that allowed me to walk through the code easier with the debugger and see where we were in the call stack,
-// where I was doing what I needed to do, where I wasn't, where I wanted to implement recursion, etc.
