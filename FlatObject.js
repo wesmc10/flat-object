@@ -11,7 +11,7 @@ function flatObject(obj) {
             whatever key we're on is now a string */
             const newObject = flatObject(obj[key]);
             /* loop through the newObject that's been created with each recursive call and add
-            a key to the return object. the key should contain the correct key given the current position in
+            a key to the return object. the key should contain the value of the correct key given the current position in
             the call stack, concatenated with a dot and the value of the current key in the newObject.
             it should also set its value to be the value of the current key in the newObject */
             for (const nestedKey in newObject) returnObj[`${key}.${nestedKey}`] = newObject[nestedKey];
