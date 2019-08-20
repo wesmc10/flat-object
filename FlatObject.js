@@ -1,9 +1,9 @@
 function flatObject(obj) {
-    const returnObj = {};
+    const resultObj = {};
     
     for (const key in obj) {
         if (typeof obj[key] === 'string') {
-            returnObj[key] = obj[key];
+            resultObj[key] = obj[key];
         } else {
             /* if the value is an object (or an array, since the data type of an array in JS is 'object'),
             make a recursive call with that value as the parameter.
@@ -11,13 +11,13 @@ function flatObject(obj) {
             whatever key we're on is now a string */
             const newObject = flatObject(obj[key]);
             /* loop through the newObject that's been created with each recursive call and add
-            a key to the return object. the key should contain the value of the correct key given the current position in
+            a key to the result object. the key should contain the value of the correct key given the current position in
             the call stack, concatenated with a dot and the value of the current key in the newObject.
             it should also set its value to be the value of the current key in the newObject */
-            for (const nestedKey in newObject) returnObj[`${key}.${nestedKey}`] = newObject[nestedKey];
+            for (const nestedKey in newObject) resultObj[`${key}.${nestedKey}`] = newObject[nestedKey];
         }
     }
-    return returnObj;
+    return resultObj;
 };
 
 /* ultimately I broke down the problem you gave me into a smaller piece so that I could get a better sense
