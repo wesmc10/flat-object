@@ -1,6 +1,5 @@
 function flatObject(obj) {
-    const resultObj = {};
-    
+    const resultObj = {};    
     for (const key in obj) {
         if (typeof obj[key] === 'string') {
             resultObj[key] = obj[key];
